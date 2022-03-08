@@ -13,10 +13,8 @@ set "gitdir=%cd%"
 
 
 REM Get PyCharm bin exe
-set "pybin=%programfiles%\JetBrains"
-cd "%pybin%"
-cd "%pybin%\PyCharm*"
-set "pybin=%cd%\bin\pycharm64.exe"
+cd "%programfiles%\JetBrains%" && cd PyCharm* && cd bin 
+set "pybin=%cd%\pycharm64.exe"
 
 
 REM Open the directory with PyCharm
@@ -25,5 +23,3 @@ if exist "%gitdir%\.git" (
 ) else (
     call "%pybin%" "%~1"
 )
-
-exit /b

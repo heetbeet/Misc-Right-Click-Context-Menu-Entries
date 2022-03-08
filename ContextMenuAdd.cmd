@@ -36,7 +36,7 @@ echo Windows Registry Editor Version 5.00                                       
 echo:                                                                                           >>"%rtmp%"
 echo ; Right click on explorer TREE                                                             >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\shell\PyCharmOpenGitBase]                    >>"%rtmp%"
-echo @="Open with PyCharm (git base dir)"                                                       >>"%rtmp%"
+echo @="PyCharm Open Git Base"                                                                  >>"%rtmp%"
 echo "Icon"="%icopath%,0"                                                                       >>"%rtmp%"
 echo:                                                                                           >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\shell\PyCharmOpenGitBase\command]            >>"%rtmp%"
@@ -44,7 +44,7 @@ echo @="WScript \"%noshellpath%\" \"%scriptpath%\" \"%%1\""                     
 echo:                                                                                           >>"%rtmp%"
 echo ; Right click on explorer main area                                                        >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\PyCharmOpenGitBase]         >>"%rtmp%"
-echo @="Open with PyCharm (git base dir)"                                                       >>"%rtmp%"
+echo @="PyCharm Open Git Base"                                                                  >>"%rtmp%"
 echo "Icon"="%icopath%,0"                                                                       >>"%rtmp%"
 echo:                                                                                           >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\PyCharmOpenGitBase\command] >>"%rtmp%"
@@ -53,7 +53,7 @@ echo @="WScript \"%noshellpath%\" \"%scriptpath%\" \"%%V\""                     
 reg import "%rtmp%" > nul 2>&1
 del "%rtmp%"
 
-echo PyCharm Open With (git base dir) has been added
+echo PyCharm Open Git Base has been added
 echo:
 
 :: Pause if double clicked
