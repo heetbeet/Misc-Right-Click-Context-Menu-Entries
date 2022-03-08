@@ -7,7 +7,7 @@ set "thisdir=%~dp0"
 set "thisdir=%thisdir:\=\\%"
 
 set "scriptpath=%thisdir%script.cmd"
-set "icopath=%thisdir%ico.ico"
+set "iconpath=%thisdir%icon.ico"
 set "noshellpath=%thisdir%noshell.vbs"
 
 :: Remove previous context menu entries
@@ -37,7 +37,7 @@ echo:                                                                           
 echo ; Right click on explorer TREE                                                             >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\shell\PyCharmOpenGitBase]                    >>"%rtmp%"
 echo @="PyCharm Open Git Base"                                                                  >>"%rtmp%"
-echo "Icon"="%icopath%,0"                                                                       >>"%rtmp%"
+echo "Icon"="%iconpath%,0"                                                                       >>"%rtmp%"
 echo:                                                                                           >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\shell\PyCharmOpenGitBase\command]            >>"%rtmp%"
 echo @="WScript \"%noshellpath%\" \"%scriptpath%\" \"%%1\""                                     >>"%rtmp%"
@@ -45,7 +45,7 @@ echo:                                                                           
 echo ; Right click on explorer main area                                                        >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\PyCharmOpenGitBase]         >>"%rtmp%"
 echo @="PyCharm Open Git Base"                                                                  >>"%rtmp%"
-echo "Icon"="%icopath%,0"                                                                       >>"%rtmp%"
+echo "Icon"="%iconpath%,0"                                                                       >>"%rtmp%"
 echo:                                                                                           >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\PyCharmOpenGitBase\command] >>"%rtmp%"
 echo @="WScript \"%noshellpath%\" \"%scriptpath%\" \"%%V\""                                     >>"%rtmp%"
