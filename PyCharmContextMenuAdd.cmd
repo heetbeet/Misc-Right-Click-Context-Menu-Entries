@@ -3,15 +3,15 @@ SETLOCAL
 
 :: Use double slash \\ for .reg compatibility
 
-set "thisdir=%~dp0"
-set "thisdir=%thisdir:\=\\%"
+set "resourcesdir=%~dp0resources\"
+set "resourcesdir=%resourcesdir:\=\\%"
 
-set "scriptpath=%thisdir%script.cmd"
-set "iconpath=%thisdir%icon.ico"
-set "noshellpath=%thisdir%noshell.vbs"
+set "scriptpath=%resourcesdir%PyCharmEntryPoint.cmd"
+set "iconpath=%resourcesdir%pycharm.ico"
+set "noshellpath=%resourcesdir%noshell.vbs"
 
 :: Remove previous context menu entries
-call "%~dp0ContextMenuRemove.cmd"
+call "%~dp0PyCharmContextMenuRemove.cmd"
 
 
 :: Create noshell.vbs in order to run github.bat silently (to avoid cmd window popup)
@@ -37,7 +37,7 @@ echo:                                                                           
 echo ; Right click on explorer TREE                                                             >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\shell\PyCharmOpenGitBase]                    >>"%rtmp%"
 echo @="PyCharm Open Git Base"                                                                  >>"%rtmp%"
-echo "Icon"="%iconpath%,0"                                                                       >>"%rtmp%"
+echo "Icon"="%iconpath%,0"                                                                      >>"%rtmp%"
 echo:                                                                                           >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\shell\PyCharmOpenGitBase\command]            >>"%rtmp%"
 echo @="WScript \"%noshellpath%\" \"%scriptpath%\" \"%%1\""                                     >>"%rtmp%"
@@ -45,7 +45,7 @@ echo:                                                                           
 echo ; Right click on explorer main area                                                        >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\PyCharmOpenGitBase]         >>"%rtmp%"
 echo @="PyCharm Open Git Base"                                                                  >>"%rtmp%"
-echo "Icon"="%iconpath%,0"                                                                       >>"%rtmp%"
+echo "Icon"="%iconpath%,0"                                                                      >>"%rtmp%"
 echo:                                                                                           >>"%rtmp%"
 echo [HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\PyCharmOpenGitBase\command] >>"%rtmp%"
 echo @="WScript \"%noshellpath%\" \"%scriptpath%\" \"%%V\""                                     >>"%rtmp%"
