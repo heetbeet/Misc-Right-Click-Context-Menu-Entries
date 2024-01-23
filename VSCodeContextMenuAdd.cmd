@@ -14,21 +14,6 @@ set "noshellpath=%resourcesdir%noshell.vbs"
 call "%~dp0VSCodeContextMenuRemove.cmd"
 
 
-:: Create noshell.vbs in order to run github.bat silently (to avoid cmd window popup)
-echo 'from http://superuser.com/questions/140047                                                   >"%noshellpath%"
-echo If WScript.Arguments.Count ^>= 1 Then                                                        >>"%noshellpath%"
-echo     ReDim arr(WScript.Arguments.Count-1)                                                     >>"%noshellpath%"
-echo     For i = 0 To WScript.Arguments.Count-1                                                   >>"%noshellpath%"
-echo         Arg = WScript.Arguments(i)                                                           >>"%noshellpath%"
-echo         If InStr(Arg, " ") ^> 0 or InStr(Arg, "&") ^> 0 Then Arg = chr(34) ^& Arg ^& chr(34) >>"%noshellpath%"
-echo       arr(i) = Arg                                                                           >>"%noshellpath%"
-echo     Next                                                                                     >>"%noshellpath%"
-echo     RunCmd = Join(arr)                                                                       >>"%noshellpath%"
-echo     CreateObject("Wscript.Shell").Run RunCmd, 0 , True                                       >>"%noshellpath%"
-echo End If                                                                                       >>"%noshellpath%"
-
-
-
 :: Add context menu
 set "rtmp=%temp%\context-menu--activate.reg"
 
